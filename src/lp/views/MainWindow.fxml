@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lp.controllers.MainWindowController">
+   <children>
+      <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="menu-bar">
+        <menus>
+          <Menu mnemonicParsing="false" text="%FILE">
+            <items>
+              <MenuItem fx:id="exitMI" mnemonicParsing="false" text="%CLOSE">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="W" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%TASKS">
+            <items>
+              <MenuItem fx:id="changeDbMI" mnemonicParsing="false" text="%CHOOSE_ANOTHER_DB">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="D" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+            <Menu fx:id="langM" mnemonicParsing="false" text="%LANGUAGE">
+               <items>
+                  <RadioMenuItem fx:id="arRMI" mnemonicParsing="false" text="%ARABIC">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="U" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="langTG" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="frRMI" mnemonicParsing="false" text="%FRENCH" toggleGroup="$langTG">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="F" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="enRMI" mnemonicParsing="false" text="%ENGLISH" toggleGroup="$langTG">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="E" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </RadioMenuItem>
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="%QUESTION_MARK">
+            <items>
+              <MenuItem fx:id="aboutMI" mnemonicParsing="false" text="%ABOUT">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="A" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="main-panel" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" spacing="12.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox spacing="12.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="%AVAILABLE_GROUPS">
+                                 <styleClass>
+                                    <String fx:value="body-title" />
+                                    <String fx:value="bottom-bar" />
+                                 </styleClass></Label>
+                              <ListView fx:id="avaGrpsLV" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="p" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="6.0">
+                           <children>
+                              <Button fx:id="addBtn" disable="true" maxWidth="1.7976931348623157E308" minHeight="32.0" minWidth="64.0" mnemonicParsing="false" text="">
+                                 <styleClass>
+                                    <String fx:value="icm" />
+                                    <String fx:value="btn" />
+                                 </styleClass></Button>
+                              <Button fx:id="addAllBtn" maxWidth="1.7976931348623157E308" minHeight="32.0" minWidth="64.0" mnemonicParsing="false" text="">
+                                 <styleClass>
+                                    <String fx:value="icm" />
+                                    <String fx:value="btn" />
+                                 </styleClass></Button>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="22.0" layoutY="22.0" spacing="12.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="%SELECTED_GROUPS">
+                                 <styleClass>
+                                    <String fx:value="body-title" />
+                                    <String fx:value="bottom-bar" />
+                                 </styleClass></Label>
+                              <ListView fx:id="selGrpsLV" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="p" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="6.0" HBox.hgrow="SOMETIMES">
+                           <children>
+                              <Button fx:id="upBtn" alignment="CENTER" contentDisplay="TEXT_ONLY" disable="true" graphicTextGap="0.0" maxWidth="1.7976931348623157E308" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" text="" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="icm" />
+                                    <String fx:value="btn" />
+                                 </styleClass></Button>
+                              <Button fx:id="downBtn" alignment="CENTER" contentDisplay="TEXT_ONLY" disable="true" graphicTextGap="0.0" maxWidth="1.7976931348623157E308" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" text="" textAlignment="CENTER" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="12.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="icm" />
+                                    <String fx:value="btn" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="deleteBtn" alignment="CENTER" contentDisplay="TEXT_ONLY" disable="true" graphicTextGap="0.0" maxWidth="1.7976931348623157E308" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" text="" textAlignment="CENTER" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets top="12.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="icm" />
+                                    <String fx:value="btn" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="clearBtn" alignment="CENTER" contentDisplay="TEXT_ONLY" disable="true" graphicTextGap="0.0" maxWidth="1.7976931348623157E308" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" text="" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="icm" />
+                                    <String fx:value="btn" />
+                                 </styleClass></Button>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                  </HBox>
+                  <HBox spacing="64.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="12.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="%GENERAL_OPTIONS">
+                                 <VBox.margin>
+                                    <Insets bottom="6.0" />
+                                 </VBox.margin>
+                                 <styleClass>
+                                    <String fx:value="body-title" />
+                                    <String fx:value="bottom-bar" />
+                                 </styleClass>
+                              </Label>
+                              <CheckBox fx:id="oneShtCB" mnemonicParsing="false" styleClass="options" text="%TWO_SHEETS_PER_GROUP" />
+                              <CheckBox fx:id="oneFileCB" layoutX="10.0" layoutY="27.0" mnemonicParsing="false" styleClass="options" text="%ONE_FILE_PER_GROUP" />
+                              <CheckBox fx:id="exportPdfCB" layoutX="10.0" layoutY="44.0" mnemonicParsing="false" styleClass="options" text="%PDF_EXPORT" />
+                              <CheckBox fx:id="exportXlCB" layoutX="10.0" layoutY="61.0" mnemonicParsing="false" styleClass="options" text="%XL_EXPORT" />
+                              <Label text="%OUTPUT_DIR">
+                                 <VBox.margin>
+                                    <Insets bottom="6.0" top="6.0" />
+                                 </VBox.margin>
+                                 <styleClass>
+                                    <String fx:value="body-title" />
+                                    <String fx:value="bottom-bar" />
+                                 </styleClass>
+                              </Label>
+                              <HBox alignment="CENTER_LEFT">
+                                 <children>
+                                    <TextField fx:id="outDirTF" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="path-tf" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="outDirBtn" minWidth="32.0" mnemonicParsing="false" text="">
+                                       <styleClass>
+                                          <String fx:value="icm" />
+                                          <String fx:value="btn" />
+                                       </styleClass></Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="160.0" spacing="6.0">
+                           <children>
+                              <fx:include fx:id="pi" source="ProgressIndicator.fxml" />
+                              <HBox fx:id="pdfHB" alignment="CENTER" spacing="4.0">
+                                 <children>
+                                    <ProgressBar fx:id="pdfPB" maxWidth="1.7976931348623157E308" progress="0.0" styleClass="pdf-pb" HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="pdfInfoLbl" maxWidth="1.7976931348623157E308" text="">
+                                       <styleClass>
+                                          <String fx:value="info" />
+                                          <String fx:value="pdf-info" />
+                                       </styleClass></Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="4.0" fx:id="xlHB">
+                                 <children>
+                                    <ProgressBar maxWidth="1.7976931348623157E308" progress="0.0" styleClass="xl-pb" HBox.hgrow="ALWAYS" fx:id="xlPB" />
+                                    <Label maxWidth="1.7976931348623157E308" text="" fx:id="xlInfoLbl">
+                                       <styleClass>
+                                          <String fx:value="info" />
+                                          <String fx:value="xl-info" />
+                                       </styleClass></Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <Button fx:id="generateBtn" maxWidth="1.7976931348623157E308" minHeight="64.0" minWidth="140.0" mnemonicParsing="false" text="%GENERATE">
+                                 <styleClass>
+                                    <String fx:value="generate" />
+                                    <String fx:value="btn" />
+                                 </styleClass></Button>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                  </HBox>
+                  <FlowPane fx:id="statusBar" hgap="6.0" styleClass="status-bar">
+                     <children>
+                        <Label fx:id="info" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="info" text="" />
+                        <Label fx:id="infoLbl" maxWidth="1.7976931348623157E308" text="%LANGUAGE_NOTIFICATION" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="3.0" left="6.0" right="6.0" top="3.0" />
+                     </padding>
+                  </FlowPane>
+               </children>
+            </VBox>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="300.0" spacing="6.0" styleClass="sidebar">
+               <children>
+                  <Label text="%SCHOOL_INFOS">
+                     <styleClass>
+                        <String fx:value="sidebar-title" />
+                        <String fx:value="bottom-bar" />
+                     </styleClass></Label>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="3.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Label styleClass="infos-lbl" text="%ACADEMY" />
+                        <TextField fx:id="acaTF" styleClass="infos-tf" text="Academy">
+                           <VBox.margin>
+                              <Insets left="6.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="20.0" layoutY="20.0" styleClass="infos-lbl" text="%DIECTION" />
+                        <TextField fx:id="dirTF" layoutX="20.0" layoutY="37.0" styleClass="infos-tf" text="Direction">
+                           <VBox.margin>
+                              <Insets left="6.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="20.0" layoutY="37.0" styleClass="infos-lbl" text="%SCHOOL" />
+                        <TextField fx:id="schoolTF" layoutX="20.0" layoutY="79.0" styleClass="infos-tf" text="School">
+                           <VBox.margin>
+                              <Insets left="6.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label layoutX="20.0" layoutY="54.0" styleClass="infos-lbl" text="%YEAR" />
+                        <TextField fx:id="yearTF" layoutX="20.0" layoutY="113.0" styleClass="infos-tf" text="Year">
+                           <VBox.margin>
+                              <Insets left="6.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </VBox>
+                  <Label layoutX="16.0" layoutY="16.0" text="%AVAILABLE_TEMPLATES">
+                     <styleClass>
+                        <String fx:value="sidebar-title" />
+                        <String fx:value="bottom-bar" />
+                     </styleClass></Label>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" pannable="true" styleClass="tpl-list" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="12.0" styleClass="content">
+                           <children>
+                              <StackPane layoutX="16.0" layoutY="16.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl1" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn1" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn1" layoutX="166.0" layoutY="16.0" minHeight="32" minWidth="32" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl1" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="178.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl2" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn2" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn2" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl2" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="340.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl3" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn3" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn3" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl3" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" text="" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="16.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl4" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn4" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn4" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl4" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" text="" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="178.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl5" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn5" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn5" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl5" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" text="" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="340.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl6" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn6" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn6" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl6" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" text="" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="502.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl7" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn7" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn7" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl7" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" text="" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="502.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl8" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn8" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn8" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl8" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" text="" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="502.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl9" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn9" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn9" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl9" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" text="" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                              <StackPane layoutX="16.0" layoutY="502.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="150.0">
+                                 <children>
+                                    <Button fx:id="tplBtn10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" StackPane.alignment="CENTER">
+                                       <styleClass>
+                                          <String fx:value="tplBtn" />
+                                          <String fx:value="tpl10" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplSetBtn10" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="settings" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="tplPrvwBtn10" layoutX="166.0" layoutY="16.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" wrapText="true" StackPane.alignment="TOP_RIGHT">
+                                       <StackPane.margin>
+                                          <Insets bottom="6.0" left="6.0" right="6.0" top="44.0" />
+                                       </StackPane.margin>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="preview" />
+                                       </styleClass>
+                                    </Button>
+                                    <Label fx:id="tplNumLbl10" alignment="CENTER" minHeight="48.0" minWidth="48.0" styleClass="num" text="" StackPane.alignment="BOTTOM_LEFT">
+                                       <StackPane.margin>
+                                          <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                       </StackPane.margin>
+                                    </Label>
+                                 </children>
+                              </StackPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@../styles/theme.css" />
+   </stylesheets>
+</VBox>

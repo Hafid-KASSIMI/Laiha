@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lp.controllers.PreviewController">
+   <children>
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="image-preview">
+         <children>
+            <ImageView fx:id="img" fitHeight="460.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <Label styleClass="preview-lbl" text="%CATEGORY">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="categoryLbl" styleClass="p" text="Label" textAlignment="JUSTIFY" wrapText="true">
+         <VBox.margin>
+            <Insets left="12.0" right="12.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label styleClass="preview-lbl" text="%CURRENT_TITLE">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="titleLbl" styleClass="p" text="Label" textAlignment="JUSTIFY" wrapText="true">
+         <VBox.margin>
+            <Insets left="12.0" right="12.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label styleClass="preview-lbl" text="%INCLUDED_STUDENTS_INFOS">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Label>
+      <Label fx:id="infosLbl" styleClass="p" text="Label" textAlignment="JUSTIFY" wrapText="true">
+         <VBox.margin>
+            <Insets left="12.0" right="12.0" />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </Label>
+   </children>
+   <stylesheets>
+      <URL value="@../styles/theme.css" />
+   </stylesheets>
+   <padding>
+      <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+   </padding>
+</VBox>

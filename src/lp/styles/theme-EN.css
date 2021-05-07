@@ -1,0 +1,29 @@
+/* 
+    Author     : H. KASSIMI
+*/
+
+
+@font-face {
+    src: url('../resources/fonts/ae_AlMothnna_bold.ttf');
+}
+
+@font-face {
+    src: url('../resources/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    src: url('../resources/fonts/Roboto-Bold.ttf');
+}
+
+.image {
+    -fx-image: url("../resources/images/LOGO-1.png");
+}
+
+.body-title, .sidebar-title, .options, .infos-tf, .infos-lbl, .p, .lbl, .pi-text, .btn, .menu-bar, .status-bar, .settings-title {
+    -fx-font-family: "Roboto";
+}
+
+.title {
+    -fx-font-family: "ae_AlMothnna";
+    -fx-margin-bottom: 12;
+}

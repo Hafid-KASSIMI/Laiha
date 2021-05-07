@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="300.0" prefWidth="560.0" styleClass="loader-main-panel" stylesheets="@../styles/theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lp.controllers.DBLoaderController">
+   <children>
+      <Label id="title" text="%LOAD_DB_TITLE">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <padding>
+            <Insets bottom="6.0" left="32.0" right="32.0" top="12.0" />
+         </padding>
+         <styleClass>
+            <String fx:value="title" />
+            <String fx:value="bottom-bar" />
+         </styleClass>
+      </Label>
+      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+         <children>
+            <FlowPane alignment="CENTER">
+               <children>
+                  <GridPane maxWidth="1.7976931348623157E308">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="NEVER" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="220.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="36.0" vgrow="NEVER" />
+                      <RowConstraints minHeight="36.0" vgrow="NEVER" />
+                      <RowConstraints minHeight="36.0" vgrow="NEVER" />
+                        <RowConstraints minHeight="36.0" vgrow="NEVER" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="%ACADEMY" textAlignment="JUSTIFY" GridPane.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Tahoma" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="12.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="p" />
+                              <String fx:value="p14" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="%DIECTION" textAlignment="JUSTIFY" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Tahoma" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="12.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="p" />
+                              <String fx:value="p14" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="%SCHOOL" textAlignment="JUSTIFY" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Tahoma" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="12.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="p" />
+                              <String fx:value="p14" />
+                           </styleClass>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="%YEAR" textAlignment="JUSTIFY" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Tahoma" size="12.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets right="12.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="p" />
+                              <String fx:value="p14" />
+                           </styleClass>
+                        </Label>
+                        <TextField fx:id="acaTF" maxWidth="1.7976931348623157E308" styleClass="infos-tf" GridPane.columnIndex="1" />
+                        <TextField fx:id="dirTF" maxWidth="1.7976931348623157E308" styleClass="infos-tf" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="schoolTF" maxWidth="1.7976931348623157E308" styleClass="infos-tf" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="yearTF" maxWidth="1.7976931348623157E308" styleClass="infos-tf" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+               </children>
+            </FlowPane>
+            <VBox alignment="CENTER" prefWidth="200.0">
+               <children>
+                  <fx:include fx:id="pi" source="ProgressIndicator.fxml" />
+                  <Label fx:id="progressLbl" styleClass="lbl" text="%LOAD_PERCENTAGE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <FlowPane alignment="CENTER" hgap="12.0" VBox.vgrow="NEVER">
+         <children>
+            <Button fx:id="startBtn" layoutX="347.0" layoutY="22.0" mnemonicParsing="false" styleClass="btn" text="%START">
+               <font>
+                  <Font name="Tahoma" size="14.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </padding>
+      </FlowPane>
+   </children>
+</VBox>
